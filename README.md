@@ -53,10 +53,12 @@ Imagine a city where buildings, streets, and public spaces report their own ener
 - BME680 sensor (temperature, humidity, gas)  
 - **Energy harvesters:** Prometeus TEG + Epishine OPV → supercapacitor buffer  
 - **Radio Controlii Wake-Up Module (868 MHz)** for ultra-low-power, hub-controlled operation  
-- XBee S2C End Device (for multi-node mesh forwarding)
+- XBee S2C End Device
 
 **Routers (Overseers)**
-
+- ATmega4808 MCU  
+- XBee S2C Router (for multi-node mesh forwarding)
+  
 **Hub (Master)**  
 - XBee S2C Coordinator via USB → PC or Raspberry Pi  
 - Python hub script for **ML/DL inference, Bayesian optimisation, and selective wake-up**
