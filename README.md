@@ -1,50 +1,56 @@
 # Energy-as-a-Sensor IoT with On-Demand Wake-Up 🌱
 
-## 🌟 Introduction
+## 🌟 Introduction (Investor/Stakeholder Friendly)
 
-Swansea is building a **Net Zero future**, targeting clean air, energy-efficient buildings, and sustainable infrastructure. Achieving these goals requires **dense, real-time environmental data**, without the cost and maintenance burden of conventional sensor networks.
+Swansea is building a Net Zero future, targeting clean air, energy-efficient buildings, and sustainable infrastructure. Achieving these goals requires **dense, real-time environmental data**, without the cost and maintenance burden of conventional sensor networks.
 
-This project demonstrates a **battery-free IoT system** where **energy harvested from light (OPV) and heat (TEG) becomes the sensor itself**. Nodes remain in **ultra-low-power sleep**, waking **only on demand via the Radio Controlli 868 MHz wake-up module**, transmitting data when it is most valuable.
+This project demonstrates a **battery-free IoT system** where energy harvested from light (OPV) and heat (TEG) becomes the sensor itself. Nodes remain in **ultra-low-power sleep**, optionally performing local sensing (e.g., PIR, RTC), but **transmitting data only when explicitly woken by the hub** via the Radio Controli 868 MHz wake-up module.  
 
-Each node monitors its energy buffer: **voltage and current fluctuations encode environmental information**, such as room temperature changes, occupancy patterns, or heat loss. Advanced **ML/DL models and Bayesian optimisation** on the hub guide **intelligent, on-demand wake-ups**, prioritising nodes that will provide the most informative data.
+**On-demand wake-up offers multiple advantages:**  
+- **Reliability:** Only selected nodes transmit at a time, avoiding congestion and collisions that occur with hundreds of nodes transmitting simultaneously.  
+- **Security:** Nodes are silent by default, reducing unauthorized transmissions and eavesdropping risks.  
+- **Energy efficiency:** Nodes spend almost all their time in ultra-low-power sleep, transmitting only when their data is needed, enabling battery-free operation.
 
-Imagine a city where **buildings, streets, and public spaces report their own energy use, heat efficiency, and air quality**, all without wires, batteries, or constant maintenance. This system is **scalable, sustainable, and intelligent**, offering hyperlocal insights that enable Swansea to make **data-driven Net Zero decisions**—from retrofitting inefficient homes to optimizing public infrastructure.
+Each node monitors its energy buffer: voltage and current fluctuations encode environmental information such as room temperature changes, occupancy patterns, or heat loss. Advanced **ML/DL models and Bayesian optimisation** on the hub guide intelligent, on-demand wake-ups, prioritising nodes that will provide the most informative data.
 
-**In short:** Energy powers the sensor, and **advanced intelligence decides when the sensor communicates**, unlocking smarter, greener, and more responsive urban environments.
+Imagine a city where buildings, streets, and public spaces report their own energy use, heat efficiency, and air quality, all without wires, batteries, or constant maintenance. This system is scalable, sustainable, and intelligent, offering **hyperlocal insights** that enable Swansea to make **data-driven Net Zero decisions**—from retrofitting inefficient homes to optimizing public infrastructure.
+
+**In short:** Energy powers the sensor, and advanced intelligence decides **when and which nodes communicate**, unlocking smarter, greener, and more reliable urban environments.
 
 ---
 
 ## 💪 Why I’m the Right Person to Make This Happen  
 
-I bring a combination of **electronics engineering expertise** and formal training in **Machine Learning and Artificial Intelligence (Professional Certificate, Imperial College London)**. This background enables me to design **energy-aware, intelligent IoT systems** that can scale from a single node to hundreds:
+I combine **electronics engineering expertise** with formal training in **Machine Learning and Artificial Intelligence (Professional Certificate, Imperial College London)**, giving me the skills to deliver intelligent, energy-aware IoT systems:
 
 - Designed and implemented **low-power, energy-harvesting sensor networks**.  
-- Applied **ML/DL and Bayesian optimisation** to guide on-demand wake-ups based on uncertainty in environmental measurements.  
-- Experienced with **Radio Controli Wake-Up modules, TEGs, and OPVs**, enabling rapid prototyping of self-powered nodes.  
-- Skilled in **data visualization and HCI**, translating complex environmental signals into actionable insights.  
-- Vision for **scaling a single-node POC into a mesh network**, aligned with Swansea’s Net Zero goals.
+- Applied **ML/DL and Bayesian optimisation** to guide **hub-controlled wake-ups**, minimizing transmissions while maximizing information.  
+- Experienced with **Radio Controli Wake-Up modules, TEGs, and OPVs**, enabling rapid prototyping of battery-free nodes.  
+- Skilled in **HCI and data visualization**, turning environmental signals into actionable insights.  
+- Vision for **scaling from single-node POC to hundreds of nodes**, aligned with Swansea’s Net Zero goals.
 
 ---
 
 ## 🌟 How It Works
 
-1. **Harvesting Energy as a Sensor:**  
-   - Node collects ambient heat via **TEG** and light via **OPV**.  
-   - Energy flows into a buffer (supercapacitor), whose **voltage and current fluctuations encode environmental conditions**.
+1. **Energy Harvesting & Sensing:**  
+   - Node collects ambient heat (TEG) and light (OPV).  
+   - Optional environmental sensors (BME680) or local triggers (PIR, RTC) can sample locally.  
+   - Energy buffer voltage/current fluctuations can themselves act as **passive sensor signals**.
 
-2. **On-Demand Wake-Up via Radio Controli:**  
-   - Node stays in **ultra-low-power sleep** to preserve energy.  
-   - The **Radio Controli 868 MHz module** listens continuously for wake-up signals.  
-   - Hub triggers nodes only when data is needed or uncertainty is high.
+2. **Hub-Controlled Wake-Up & Radio Silence:**  
+   - Nodes remain in **ultra-low-power sleep**, transmitting **only when explicitly woken** via the Radio Controli 868 MHz wake-up signal.  
+   - This ensures **network reliability**, prevents congestion, and maintains **radio silence**.  
+   - Only selected nodes transmit, avoiding collisions even in dense deployments.
 
 3. **Intelligent Node Selection:**  
-   - Hub uses **ML/DL models and Bayesian optimisation** to estimate uncertainty in environmental measurements.  
-   - Nodes with the **highest expected information gain** are woken first.  
-   - This approach allows hundreds of nodes to operate efficiently without unnecessary transmissions.
+   - Hub uses **ML/DL and Bayesian optimisation** to evaluate uncertainty or information gain across all nodes.  
+   - Nodes with **highest expected value** are woken to transmit.  
+   - This reduces energy use and maximizes the quality of collected data.
 
 4. **Data Collection & Visualization:**  
-   - Hub collects energy-as-sensor readings and optional environmental sensor data.  
-   - Visualized data can reveal **heat inefficiencies, air quality trends, or occupancy patterns**, all while conserving energy.
+   - Hub collects energy-as-sensor readings (and optional environmental data).  
+   - Data can reveal **heat inefficiencies, air quality trends, or occupancy patterns**, while preserving energy and minimizing transmissions.
 
 ---
 
@@ -54,13 +60,13 @@ I bring a combination of **electronics engineering expertise** and formal traini
 - ATmega4808 MCU  
 - BME680 sensor (temperature, humidity, gas)  
 - **Energy harvesters:** Prometeus TEG + Epishine OPV → supercapacitor buffer  
-- **Radio Controli Wake-Up Module (868 MHz)** for ultra-low-power, on-demand operation  
-- XBee S2C End Device (optional, for mesh forwarding)
+- **Radio Controli Wake-Up Module (868 MHz)** for ultra-low-power, hub-controlled operation  
+- XBee S2C End Device (optional, for multi-node mesh forwarding)
 
 **Hub (Coordinator)**  
 - XBee S2C Coordinator via USB → PC or Raspberry Pi  
-- Python hub script for **on-demand wake-up, ML/DL inference, and Bayesian optimisation**
+- Python hub script for **ML/DL inference, Bayesian optimisation, and selective wake-up**
 
 ---
 
-## 🔄 Workflow Diagram (Conceptual)
+## 🔄 Conceptual Workflow
