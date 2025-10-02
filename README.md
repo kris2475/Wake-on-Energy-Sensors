@@ -48,7 +48,7 @@ Imagine a city where buildings, streets, and public spaces report their own ener
 
 ## 🏗️ Hardware Overview
 
-**Node (Slaves)**  
+**Nodes (Slaves)**  
 - ATmega4808 MCU  
 - BME680 sensor (temperature, humidity, gas)  
 - **Energy harvesters:** Prometeus TEG + Epishine OPV → supercapacitor buffer  
