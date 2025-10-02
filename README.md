@@ -26,7 +26,7 @@ Imagine a city where buildings, streets, and public spaces report their own ener
    - The node’s **ability to respond** itself provides a **low-resolution environmental signal**.
 
 2. **Hub-Controlled Wake-Up & Radio Silence:**  
-   - The hub sends a **Radio Controli 868 MHz wake-up signal** to selected nodes.  
+   - The hub sends a **Radio Controlii 868 MHz wake-up signal** to selected nodes.  
    - Nodes transmit data **only when explicitly woken**, maintaining **radio silence** by default and preventing congestion.  
    - This architecture ensures **reliability and security** even in dense deployments.
 
