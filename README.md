@@ -1,56 +1,48 @@
 # Energy-as-a-Sensor IoT with On-Demand Wake-Up 🌱
 
-## 🌟 Introduction
+## 🌟 Introduction (Investor/Stakeholder Friendly)
 
-Swansea is building a Net Zero future, targeting clean air, energy-efficient buildings, and sustainable infrastructure. Achieving these goals requires **dense, real-time environmental data**, without the cost and maintenance burden of conventional sensor networks.
+Swansea is building a Net Zero future, targeting clean air, energy-efficient buildings, and sustainable infrastructure. Achieving these goals requires **dense, real-time environmental data**, without the cost and maintenance burden of conventional sensor networks.  
 
-This project demonstrates a **battery-free IoT system** where energy harvested from light (OPV) and heat (TEG) becomes the sensor itself. Nodes remain in **ultra-low-power sleep**, optionally performing local sensing (e.g., PIR, RTC), but **transmitting data only when explicitly woken by the hub** via the Radio Controli 868 MHz wake-up module.  
+This project demonstrates a **novel battery-free IoT system** where **energy harvested from the environment not only powers the nodes but also acts as a sensor itself**. Nodes remain in **ultra-low-power sleep**, optionally sampling locally, and **transmit data only when explicitly woken by the hub** via the Radio Controli 868 MHz wake-up module.  
 
-**On-demand wake-up offers multiple advantages:**  
-- **Reliability:** Only selected nodes transmit at a time, avoiding congestion and collisions that occur with hundreds of nodes transmitting simultaneously.  
-- **Security:** Nodes are silent by default, reducing unauthorized transmissions and eavesdropping risks.  
-- **Energy efficiency:** Nodes spend almost all their time in ultra-low-power sleep, transmitting only when their data is needed, enabling battery-free operation.
+**What makes this approach unique:**  
+- **Energy-as-a-sensor:** A node’s ability to respond (or fail to respond) provides environmental insight even before any sensor data is transmitted.  
+- **Hub-controlled, on-demand wake-up:** Only the most informative nodes are woken, avoiding collisions, congestion, and wasted energy.  
+- **Intelligent selection via ML/DL + Bayesian optimisation:** The hub maximizes information gain while keeping the network silent and efficient.  
+- **Battery-free, high-resolution sensing:** BME680 or optional sensors deliver rich environmental data only when needed.  
+- **Deadness as signal:** Non-responsive nodes still convey meaningful environmental information — a subtle, powerful feature not exploited in conventional IoT networks.  
 
-Each node monitors its energy buffer: voltage and current fluctuations encode environmental information such as room temperature changes, occupancy patterns, or heat loss. Advanced **ML/DL models and Bayesian optimisation** on the hub guide intelligent, on-demand wake-ups, prioritising nodes that will provide the most informative data.
-
-Imagine a city where buildings, streets, and public spaces report their own energy use, heat efficiency, and air quality, all without wires, batteries, or constant maintenance. This system is scalable, sustainable, and intelligent, offering **hyperlocal insights** that enable Swansea to make **data-driven Net Zero decisions**—from retrofitting inefficient homes to optimizing public infrastructure.
-
-**In short:** Energy powers the sensor, and advanced intelligence decides **when and which nodes communicate**, unlocking smarter, greener, and more reliable urban environments.
-
----
-
-## 💪 Why I’m the Right Person to Make This Happen  
-
-I combine **electronics engineering expertise** with formal training in **Machine Learning and Artificial Intelligence (Professional Certificate, Imperial College London)**, giving me the skills to deliver intelligent, energy-aware IoT systems:
-
-- Designed and implemented **low-power, energy-harvesting sensor networks**.  
-- Applied **ML/DL and Bayesian optimisation** to guide **hub-controlled wake-ups**, minimizing transmissions while maximizing information.  
-- Experienced with **Radio Controli Wake-Up modules, TEGs, and OPVs**, enabling rapid prototyping of battery-free nodes.  
-- Skilled in **HCI and data visualization**, turning environmental signals into actionable insights.  
-- Vision for **scaling from single-node POC to hundreds of nodes**, aligned with Swansea’s Net Zero goals.
+Imagine a city where buildings, streets, and public spaces report their own energy use, heat efficiency, and air quality, **without wires, batteries, or constant maintenance**, and with an intelligent system that **decides when and which nodes should speak**. This approach is **scalable, sustainable, and novel**, unlocking hyperlocal insights for **data-driven Net Zero decisions** in Swansea.  
 
 ---
 
 ## 🌟 How It Works
 
 1. **Energy Harvesting & Sensing:**  
-   - Node collects ambient heat (TEG) and light (OPV).  
-   - Optional environmental sensors (BME680) or local triggers (PIR, RTC) can sample locally.  
-   - Energy buffer voltage/current fluctuations can themselves act as **passive sensor signals**.
+   - Nodes harvest energy from **light, heat, and human activity**.  
+   - High-resolution measurements come from a **BME680 sensor** (temperature, humidity, air quality, gas) or other optional low-power sensors.  
+   - Nodes remain in ultra-low-power sleep, waking only on hub request.  
+   - The node’s **ability to respond** itself provides a **low-resolution environmental signal**.
 
 2. **Hub-Controlled Wake-Up & Radio Silence:**  
-   - Nodes remain in **ultra-low-power sleep**, transmitting **only when explicitly woken** via the Radio Controli 868 MHz wake-up signal.  
-   - This ensures **network reliability**, prevents congestion, and maintains **radio silence**.  
-   - Only selected nodes transmit, avoiding collisions even in dense deployments.
+   - The hub sends a **Radio Controli 868 MHz wake-up signal** to selected nodes.  
+   - Nodes transmit data **only when explicitly woken**, maintaining **radio silence** by default and preventing congestion.  
+   - This architecture ensures **reliability and security** even in dense deployments.
 
-3. **Intelligent Node Selection:**  
-   - Hub uses **ML/DL and Bayesian optimisation** to evaluate uncertainty or information gain across all nodes.  
-   - Nodes with **highest expected value** are woken to transmit.  
-   - This reduces energy use and maximizes the quality of collected data.
+3. **Energy-as-a-Sensor (Node State as Information):**  
+   - A node’s response conveys information about local conditions:  
+     - **Node responds:** sufficient energy harvested → high-resolution sensor data available.  
+     - **Node fails to respond:** insufficient energy → hub deduces environmental conditions or low activity.  
+   - Every node, whether transmitting or silent, contributes **informative insight** to the hub.
 
-4. **Data Collection & Visualization:**  
-   - Hub collects energy-as-sensor readings (and optional environmental data).  
-   - Data can reveal **heat inefficiencies, air quality trends, or occupancy patterns**, while preserving energy and minimizing transmissions.
+4. **Intelligent Node Selection:**  
+   - The hub uses **ML/DL models and Bayesian optimisation** to select which nodes to wake based on **uncertainty and expected information gain**.  
+   - This ensures the **most informative nodes are queried**, maximizing value while minimizing energy use and transmissions.
+
+5. **Data Collection & Visualization:**  
+   - High-resolution sensor data is logged and visualized to reveal **heat inefficiencies, air quality trends, occupancy patterns**, or other environmental insights.  
+   - Low-resolution signals from node state complement this, providing a **multi-layered understanding** of environmental conditions.
 
 ---
 
@@ -70,3 +62,21 @@ I combine **electronics engineering expertise** with formal training in **Machin
 ---
 
 ## 🔄 Conceptual Workflow
+
+Energy Harvest → Node Buffer → Local Sampling (optional)
+↓
+Ultra-Low-Power Sleep → No transmissions
+↓
+Radio Controli Wake-Up Signal from Hub
+↓
+Node response:
+- If awake → Transmit high-res sensor data
+- If silent → Hub infers low-res environmental info
+↓
+Hub evaluates ML/DL + Bayesian uncertainty → selects next nodes
+↓
+Hub logs & visualizes data
+↓
+Node returns to sleep
+
+
