@@ -52,8 +52,8 @@ Imagine a city where buildings, streets, and public spaces report their own ener
 - ATmega4808 MCU  
 - BME680 sensor (temperature, humidity, gas)  
 - **Energy harvesters:** Prometeus TEG + Epishine OPV → supercapacitor buffer  
-- **Radio Controli Wake-Up Module (868 MHz)** for ultra-low-power, hub-controlled operation  
-- XBee S2C End Device (optional, for multi-node mesh forwarding)
+- **Radio Controlii Wake-Up Module (868 MHz)** for ultra-low-power, hub-controlled operation  
+- XBee S2C End Device (for multi-node mesh forwarding)
 
 **Routers (Overseers)**
 
