@@ -1,6 +1,6 @@
 # Energy-as-a-Sensor IoT with On-Demand Wake-Up 🌱
 
-## 🌟 Introduction (Investor/Stakeholder Friendly)
+## 🌟 Introduction
 
 Swansea is building a Net Zero future, targeting clean air, energy-efficient buildings, and sustainable infrastructure. Achieving these goals requires **dense, real-time environmental data**, without the cost and maintenance burden of conventional sensor networks.
 
