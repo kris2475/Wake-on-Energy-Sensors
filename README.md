@@ -67,7 +67,7 @@ Imagine a city where buildings, streets, and public spaces report their own ener
 
 ## 🔄 Conceptual Workflow
 
-- Slave nodes (hundres of then) are energy-harvesting, and only transmit when woken.
+- Slave nodes (hundreds of them) are energy-harvesting, and only transmit when woken.
 - Overseers (a few, strategically located) maintain mesh connectivity, enabling reliable on-demand communication.
 - Master (a single hub) selects which node(s) to wake using ML/DL + Bayesian optimisation, learning from both node responses and "deadness".
 
