@@ -4,7 +4,7 @@
 
 Swansea is building a **Net Zero future**, targeting clean air, energy-efficient buildings, and sustainable infrastructure. Achieving these goals requires **dense, real-time environmental data**, without the cost and maintenance burden of conventional sensor networks.
 
-This project demonstrates a **battery-free IoT system** where **energy harvested from light (OPV) and heat (TEG) becomes the sensor itself**. Nodes remain in **ultra-low-power sleep**, waking **only on demand via the Radio Controli 868 MHz wake-up module**, transmitting data when it is most valuable.
+This project demonstrates a **battery-free IoT system** where **energy harvested from light (OPV) and heat (TEG) becomes the sensor itself**. Nodes remain in **ultra-low-power sleep**, waking **only on demand via the Radio Controlli 868 MHz wake-up module**, transmitting data when it is most valuable.
 
 Each node monitors its energy buffer: **voltage and current fluctuations encode environmental information**, such as room temperature changes, occupancy patterns, or heat loss. Advanced **ML/DL models and Bayesian optimisation** on the hub guide **intelligent, on-demand wake-ups**, prioritising nodes that will provide the most informative data.
 
