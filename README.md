@@ -50,7 +50,7 @@ Imagine a city where buildings, streets, and public spaces report their own ener
 
 **Nodes (Slaves)**  
 - ATmega4808 MCU  
-- BME680 sensor (temperature, humidity, gas)  
+- BME680 sensor (temperature, atm. pressure, humidity, total VOC)  
 - **Energy harvesters:** Prometeus TEG + Epishine OPV → supercapacitor buffer  
 - **Radio Controlii Wake-Up Module (868 MHz)** for ultra-low-power, hub-controlled operation  
 - XBee S2C End Device
