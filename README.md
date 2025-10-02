@@ -67,6 +67,10 @@ Imagine a city where buildings, streets, and public spaces report their own ener
 
 ## 🔄 Conceptual Workflow
 
+- Slave nodes are energy-harvesting, and only transmit when woken.
+- Overseers maintain mesh connectivity, enabling reliable on-demand communication.
+- Master (hub) selects which nodes to wake using ML/DL + Bayesian optimisation, learning from both node responses and "deadness".
+
 Energy Harvest → Node Buffer → Local Sampling (optional)
 ↓
 Ultra-Low-Power Sleep → No transmissions
