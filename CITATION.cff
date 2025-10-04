@@ -7,8 +7,8 @@ doi: 10.5281/zenodo.17266888
 date-released: 2025-10-04 
 url: "https://github.com/kris2475/Wake-on-Energy-Sensors"
 authors:
-  - given-names: "Kris"
-    family-names: "2475"
+  - given-names: "Krishna"
+    family-names: "Seunarine"
     orcid: "https://orcid.org/0000-0001-8647-1345"
 preferred-citation:
   type: software
