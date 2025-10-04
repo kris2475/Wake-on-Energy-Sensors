@@ -87,4 +87,4 @@ Hub logs & visualizes data
 ↓
 Node returns to sleep
 
-
+ DOI: 10.5281/zenodo.17266888
