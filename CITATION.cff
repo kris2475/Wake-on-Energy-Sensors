@@ -4,20 +4,20 @@ type: software
 title: "Wake-on-Energy Sensors: Core Wake-on-Energy Logic and Sensor Drivers"
 version: v0.1.0-alpha
 doi: 10.5281/zenodo.17266888
-date-released: 2025-10-04 # **<--- Update with today's date**
+date-released: 2025-10-04 
 url: "https://github.com/kris2475/Wake-on-Energy-Sensors"
 authors:
   - given-names: "Kris"
     family-names: "2475"
-    orcid: "https://orcid.org/YOUR-ORCID-ID" # **<--- IMPORTANT: Replace with your actual ORCID**
+    orcid: "https://orcid.org/0000-0001-8647-1345"
 preferred-citation:
   type: software
   title: "Initial Alpha Release of Wake-on-Energy Sensors (v0.1.0-alpha)"
   authors:
     - given-names: "Kris"
       family-names: "2475"
-      orcid: "https://orcid.org/YOUR-ORCID-ID"
+      orcid: "https://orcid.org/0000-0001-8647-1345"
   doi: 10.5281/zenodo.17266888
   version: v0.1.0-alpha
-  date-released: 2025-10-04 # **<--- Update with today's date**
+  date-released: 2025-10-04 
   url: "https://github.com/kris2475/Wake-on-Energy-Sensors/tree/v0.1.0-alpha"
