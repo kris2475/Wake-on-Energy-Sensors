@@ -1,4 +1,4 @@
-# XBee S2C Configuration Summary
+# XBee S2C Configuration Summary & Pin Connections
 
 ## Table 1: Slave XBee (ATMega4808 / End Device) Settings
 This module is configured as a Zigbee End Device with **Pin Hibernate (SM=1)**.  
