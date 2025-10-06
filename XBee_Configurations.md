@@ -29,3 +29,15 @@ This module is configured as the Zigbee **Coordinator** and is set to **never sl
 | Destination Address Low (DL) | 1002                 | (Must match Slave's MY) | Ensures data sent from the Coordinator targets the Slave. |
 | Baud Rate (BD)            | 3                       | 9600 baud      | Matches the ESP32 sketch's serial speed.          |
 | API Enable (AP)           | 0                       | Transparent Mode | Treats the wireless link as a virtual serial connection. |
+
+
+
+| Device             | XBee Pin         | Microcontroller Pin | Notes                     |
+| ------------------ | ---------------- | ------------------- | ------------------------- |
+| ATMega4808 (Slave) | DIN (Pin 3)      | TX (Serial1 TX)     | Data to XBee              |
+| ATMega4808 (Slave) | DOUT (Pin 2)     | RX (Serial1 RX)     | Data from XBee            |
+| ATMega4808 (Slave) | Pin 9 (Sleep_RQ) | Tied to VCC (3.3V)  | Keeps module awake (SM=1) |
+| ESP32 (Master)     | DIN (Pin 3)      | TX (GPIO17)         | Data to XBee              |
+| ESP32 (Master)     | DOUT (Pin 2)     | RX (GPIO16)         | Data from XBee            |
+| ESP32 (Master)     | VCC              | 3.3V                | Power supply              |
+| ESP32 (Master)     | GND              | GND                 | Common ground             |
