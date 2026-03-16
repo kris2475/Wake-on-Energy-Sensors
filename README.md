@@ -9,7 +9,7 @@ This project demonstrates a **novel battery-free IoT system** where **energy har
 **What makes this approach unique:**  
 - **Energy-as-a-sensor:** A node’s ability to respond (or fail to respond) provides environmental insight even before any sensor data is transmitted.  
 - **Hub-controlled, on-demand wake-up:** Only the most informative nodes are woken, avoiding collisions, congestion, and wasted energy.  
-- **Intelligent selection via ML/DL + Bayesian optimisation:** The hub maximizes information gain while keeping the network silent and efficient.  
+- **Intelligent selection via ML/DL + Bayesian optimisation:** The hub maximises information gain while keeping the network silent and efficient.  
 - **Battery-free, high-resolution sensing:** BME680 or optional sensors deliver rich environmental data only when needed.  
 - **Deadness as signal:** Non-responsive nodes still convey meaningful environmental information — a subtle, powerful feature not exploited in conventional IoT networks.  
 
