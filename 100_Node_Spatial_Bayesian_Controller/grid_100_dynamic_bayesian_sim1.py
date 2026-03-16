@@ -80,7 +80,7 @@ polled_indices = []
 observations = []
 
 # --------------------------------------------------
-# 4. VISUALIZATION SETUP
+# 4. VISUALISATION SETUP
 # --------------------------------------------------
 
 fig, axes = plt.subplots(3,3, figsize=(15,15))
@@ -138,7 +138,7 @@ for t in range(9):
     y_pred, sigma = gp.predict(coords, return_std=True)
 
     # --------------------------------
-    # Visualization
+    # Visualisation
     # --------------------------------
 
     ax = axes[t]
