@@ -12,7 +12,7 @@ Instead of pinging all 100 nodes, the controller uses an **RBF Kernel** to infer
 ---
 
 ## 🚁 Research Significance: UAV "Surgical Extraction"
-As part of research into autonomous aerial data-harvesting (aligned with **TQUK Level 4 Commercial Drone Pilot** protocols), this framework addresses two mission-critical challenges:
+As part of research into autonomous aerial data-harvesting, this framework addresses two mission-critical challenges:
 
 1.  **Endurance & Efficiency:** By eliminating the "loiter time" usually wasted waiting for timeouts from energy-starved sensors, the UAV can navigate a "surgical" path exclusively to active nodes.
 2.  **COMSEC (Communications Security):** Reducing 100 pings to a mere 9 drastically minimises the UAV’s RF footprint, ensuring mission discretion in sensitive or high-integrity operational zones.
@@ -24,10 +24,10 @@ As part of research into autonomous aerial data-harvesting (aligned with **TQUK 
 ### 1. Environment Model (Multi-Cloud Suppression)
 The simulation generates a 10x10 grid with uniform ambient illumination, interrupted by randomised **shading events** (clouds or physical obstacles).
 * **High-Fi (+1.0):** The node has harvested sufficient energy to transmit.
-* **Lo-Fi (-0.8):** The node is in shade; the capacitor is below the wake-up threshold.
+* **Lo-Fi (-0.8):** The node is in shade; the harvested energy storage is below the wake-up threshold.
 
 ### 2. The Bayesian Controller
-The system utilises a **Gaussian Process Regressor** with specific "Surgical" tuning:
+The system uses a **Gaussian Process Regressor** with specific "Surgical" tuning:
 * **Kernel:** $C(1.0) \times RBF(length\_scale=2.0)$ — This balances territorial "green" coverage with sharp "red" boundaries around shaded zones.
 * **Alpha ($\alpha = 1e-6$):** This forces the model to treat silence as an absolute fact (a no-go zone), preventing success signals from "bleeding" into dead zones.
 * **Acquisition (UCB):** Uses an Upper Confidence Bound ($\mu + \beta\sigma$) with $\beta=4.0$ to aggressively scout "uncertain" white space.
