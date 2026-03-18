@@ -46,3 +46,5 @@ The system utilises a **Gaussian Process Regressor** with specific "Surgical" tu
 ### Prerequisites
 ```bash
 pip install numpy matplotlib scikit-learn
+
+python grid_100_dynamic_bayesian_sim6.py
