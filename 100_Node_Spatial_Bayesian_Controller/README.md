@@ -1,7 +1,6 @@
 # Spatial Bayesian Wake-on-Energy Controller
 ### Adaptive Territorial Inference for UAV-Aided IoT Data Harvesting
 
-[![Field Simulation](https://img.shields.io/badge/Simulation-High--Fi-green)](https://github.com/kris2475)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📡 The Concept: "Silence is a Signal"
