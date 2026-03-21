@@ -8,6 +8,8 @@ In standard IoT, a non-responsive node is typically logged as a "timeout error".
 
 Instead of pinging all 100 nodes, the controller uses an **RBF Kernel** to infer the energy state of entire neighbourhoods. By analysing just 9 pings, the system identifies "Hotspots" (active nodes) and "Dead Zones" (shaded or depleted nodes) with high statistical certainty.
 
+> **Note:** “Dead Zones” are not limited to transient cloud cover. They represent *any* region where energy harvesting is suppressed, including terrain-induced shadowing (valleys), structural occlusion, foliage, orientation effects, or persistent environmental attenuation.
+
 ---
 
 ## 🚁 Research Significance: UAV "Surgical Extraction"
@@ -22,8 +24,19 @@ As part of research into autonomous aerial data-harvesting, this framework addre
 
 ### 1. Environment Model (Multi-Cloud Suppression)
 The simulation generates a 10x10 grid with uniform ambient illumination, interrupted by randomised **shading events** (clouds or physical obstacles).
+
+> **Interpretation Extension:**  
+> These “shading events” are an abstraction for any spatial energy suppression phenomenon. While implemented as overlapping circular regions for simplicity, they can represent:
+> - Cloud cover and atmospheric effects  
+> - Terrain features (valleys, slopes, occluded horizons)  
+> - Built environment shadowing (structures, infrastructure)  
+> - Vegetation and canopy interference  
+> - Persistent low-irradiance zones due to orientation or geography  
+
 * **High-Fi (+1.0):** The node has harvested sufficient energy to transmit.
-* **Lo-Fi (-0.8):** The node is in shade; the harvested energy storage is below the wake-up threshold.
+* **Lo-Fi (-0.8):** The node is in a suppressed-energy region; the harvested energy storage is below the wake-up threshold.
+
+---
 
 ### 2. The Bayesian Controller
 The system uses a **Gaussian Process Regressor** with specific "Surgical" tuning:
@@ -37,6 +50,14 @@ The system uses a **Gaussian Process Regressor** with specific "Surgical" tuning
 * **Communication Overhead:** ~9% (9 pings vs 100).
 * **Energy Savings:** Projected >90% reduction in radio uptime for the UAV Master node.
 * **Spatial Awareness:** Achieving territorial certainty across a 100-node grid in 9 iterations.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+```bash
+pip install numpy matplotlib scikit-learn
 
 ---
 
