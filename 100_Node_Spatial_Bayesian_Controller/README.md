@@ -4,9 +4,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📡 The Concept: "Silence is a Signal"
-In standard IoT, a non-responsive node is typically logged as a "timeout error". In my **Wake-on-Energy** system, however, silence is a vital spatial data point. This project demonstrates how a master node (such as a UAV Data Mule) can map a 100-node territorial grid using **Gaussian Process Regression (GPR)** to replace exhaustive, energy-intensive polling with mathematical inference.
+In standard IoT, a non-responsive node is typically logged as a "timeout error". In my self-powered IoT **Wake-on-Energy** system, however, silence is a vital spatial data point. This project demonstrates how a master node (such as a UAV Data Mule) can map a 100-node territorial grid using **Gaussian Process Regression (GPR)** to replace exhaustive, energy-intensive polling with mathematical inference.
 
-Instead of pinging all 100 nodes, the controller uses an **RBF Kernel** to infer the energy state of entire neighbourhoods. By analysing just 9 pings, the system identifies "Hotspots" (active nodes) and "Dead Zones" (shaded or depleted nodes) with high statistical certainty.
+Instead of pinging all 100 solar-powered nodes, the controller uses an **RBF Kernel** to infer the energy state of entire neighbourhoods. By analysing just 9 pings, the system identifies "Hotspots" (active nodes) and "Dead Zones" (shaded or depleted nodes) with high statistical certainty.
 
 > **Note:** “Dead Zones” are not limited to transient cloud cover. They represent *any* region where energy harvesting is suppressed, including terrain-induced shadowing (valleys), structural occlusion, foliage, orientation effects, or persistent environmental attenuation.
 
