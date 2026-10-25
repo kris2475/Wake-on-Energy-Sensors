@@ -1,6 +1,6 @@
-# Energy-as-a-Sensor IoT with On-Demand Wake-Up 🌱
+# Energy-as-a-Sensor IoT with On-Demand Wake-Up 
 
-## 🌟 Introduction
+## Introduction
 
 Swansea is building a Net Zero future, targeting clean air, energy-efficient buildings, and sustainable infrastructure. Achieving these goals requires **dense, real-time environmental data**, without the cost and maintenance burden of conventional sensor networks.  
 
@@ -17,7 +17,7 @@ Imagine a city where buildings, streets, and public spaces report their own ener
 
 ---
 
-## 🌟 How It Works
+## How It Works
 
 1. **Energy Harvesting & Sensing:**  
    - Nodes harvest energy from **light, heat, and human activity**.  
@@ -46,7 +46,7 @@ Imagine a city where buildings, streets, and public spaces report their own ener
 
 ---
 
-## 🏗️ Hardware Overview
+## Hardware Overview
 
 **Nodes (Slaves)**  
 - ATmega4808 MCU  
@@ -65,7 +65,7 @@ Imagine a city where buildings, streets, and public spaces report their own ener
 
 ---
 
-## 🔄 Conceptual Workflow
+## Conceptual Workflow
 
 - Slave nodes (hundreds of them) are energy-harvesting, and only transmit when woken.
 - Overseers (a few, strategically located) maintain mesh connectivity, enabling reliable on-demand communication.
