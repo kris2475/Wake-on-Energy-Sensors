@@ -40,7 +40,7 @@ Imagine a city where buildings, streets, and public spaces report their own ener
    - The hub uses **ML/DL models and Bayesian optimisation** to select which nodes to wake based on **uncertainty and expected information gain**.  
    - This ensures the **most informative nodes are queried**, maximising value while minimising energy use and transmissions.
 
-5. **Data Collection & Visualization:**  
+5. **Data Collection & Visualisation:**  
    - High-resolution sensor data is logged and visualized to reveal **heat inefficiencies, air quality trends, occupancy patterns**, or other environmental insights.  
    - Low-resolution signals from node state complement this, providing a **multi-layered understanding** of environmental conditions.
 
