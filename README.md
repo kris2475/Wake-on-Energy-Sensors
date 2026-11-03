@@ -1,4 +1,5 @@
 # Wake-on-Energy: Energy-as-a-Sensor IoT with On-Demand Wake-Up
+DOI: 10.5281/zenodo.17266888
 
 ## Introduction
 
@@ -228,7 +229,7 @@ The network operates through a combination of energy harvesting, node availabili
           |                     |
      SENSOR SAMPLING            |
           |                     |
-     DATA TRANSMISSION           |
+     DATA TRANSMISSION          |
           |                     |
           +----------+----------+
                      |
@@ -248,4 +249,4 @@ The network operates through a combination of energy harvesting, node availabili
               DATA LOGGING
               AND ANALYSIS
 
- DOI: 10.5281/zenodo.17266888
+
