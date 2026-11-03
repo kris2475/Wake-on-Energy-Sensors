@@ -42,18 +42,20 @@ Energy availability is not assumed to be a direct measurement of human occupancy
 
 Nodes remain in an ultra-low-power state when not required. A dedicated Radio Controlii wake-up receiver allows the hub to request a node's attention without requiring the main microcontroller and sensor subsystem to remain continuously active.
 
-When a valid wake-up request is received, and sufficient energy is available, the node can activate its microcontroller, obtain sensor measurements and transmit the requested data.
+In this architecture, the wake-up receiver shares the primary supercapacitor power rail with the main ATmega4808 microcontroller and XBee radio. **This design enforces true zero standby drain:** when harvested energy is exhausted, the wake-up receiver powers down completely alongside the rest of the node. 
 
-The intended operating sequence is:
+Furthermore, energy harvesters (such as Epishine OPV modules) naturally require supercapacitor voltage to cross specific operational thresholds before delivering sustained power. This prevents low-voltage brownout loops, ensuring that nodes remain entirely dormant until sufficient energy is banked to guarantee atomic execution of wake-up, sampling, and transmission tasks.
 
-1. Harvest and store energy.
-2. Maintain the node in a low-power state.
-3. Receive a wake-up request when the wake-up receiver is operational.
-4. Activate the node when its available energy permits.
+When a valid wake-up request is received, and sufficient energy is available, the node activates its subsystem according to this operating sequence:
+
+1. Harvest and store energy past the harvester's operational threshold.
+2. Maintain the node (including the wake-up receiver) unpowered or in ultra-low-power sleep.
+3. Receive a wake-up request when energy permits the receiver to operate.
+4. Activate the microcontroller and sensor subsystem.
 5. Acquire and transmit the requested measurements.
-6. Return to the low-power state.
+6. Return to the low-power or unpowered state.
 
-Nodes do not routinely transmit data or participate in continuous polling. Selective interrogation is intended to reduce unnecessary communication and associated energy consumption.
+Nodes do not routinely transmit data or participate in continuous polling, significantly reducing unnecessary communication overhead.
 
 ### 3. Energy as an implicit sensing channel
 
@@ -62,9 +64,9 @@ A node's energy state and response behaviour provide information independently o
 For example:
 
 - **Successful response:** indicates that the node has sufficient energy and is operational. Its sensor measurements can then provide more detailed environmental information.
-- **Failure to respond:** indicates that the node was unavailable or did not complete the requested communication. Insufficient harvested energy is one possible explanation, but not the only one.
+- **Failure to respond:** indicates that the node was unavailable or did not complete the requested communication. Because the wake-up receiver shares the same energy rail, total silence can signify that the node is completely starved of energy due to sustained inactivity in its micro-zone (e.g., dark, cold, or static environment).
 
-The hub must distinguish between low energy availability, communication failure and other possible causes of non-response. Previous charging behaviour, stored-energy estimates, response history and network reliability can help interpret these observations.
+The hub must distinguish between low energy availability, communication failure and other possible causes of non-response. Previous charging behaviour, stored-energy estimates, response history and network reliability help interpret these observations.
 
 This is an important distinction: **silence is information, but it is not automatically proof of inactivity.**
 
@@ -133,7 +135,7 @@ Distributed, energy-harvesting nodes positioned around buildings or other monito
 - Matrix Prometheus thermoelectric generator (TEG).
 - Epishine organic photovoltaic (OPV) cell.
 - Xidas VP3-20/30/50/60 vibration energy-harvesting modules.
-- Supercapacitor energy-storage buffer.
+- Supercapacitor energy-storage buffer (shared power rail supplying MCU, XBee, and Radio Controlii).
 - Radio Controlii wake-up receiver (868 MHz variant).
 - Digi XBee S2C End Device for data communication.
 
@@ -141,7 +143,7 @@ Distributed, energy-harvesting nodes positioned around buildings or other monito
 
 - Harvest and store locally available energy.
 - Monitor or maintain an estimate of energy availability.
-- Remain in an ultra-low-power state when not required.
+- Remain in an ultra-low-power or unpowered state when not required.
 - Respond to hub-issued wake-up requests when operational.
 - Acquire and transmit environmental measurements.
 - Return to a low-power state after completing the requested operation.
@@ -211,8 +213,8 @@ The network operates through a combination of energy harvesting, node availabili
             Yes              No
              |               |
        Node operational   Node unavailable
-             |               |
-             +-------+-------+
+             |              (Receiver dead / 
+             +-------+-------  Zero standby drain)
                      |
             HUB-ISSUED WAKE-UP
                      |
@@ -223,7 +225,7 @@ The network operates through a combination of energy harvesting, node availabili
           +----------+----------+
           |                     |
       Successful             No response
-       activation                |
+       activation               |
           |                Record uncertain
           |                  observation
           |                     |
