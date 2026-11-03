@@ -84,7 +84,7 @@ Node response:
 ↓
 Hub evaluates ML/DL + Bayesian uncertainty → selects next nodes
 ↓
-Hub logs & visualizes data
+Hub logs & visualises data
 ↓
 Node returns to sleep
 
