@@ -227,26 +227,26 @@ The network operates through a combination of energy harvesting, node availabili
           |                Record uncertain
           |                  observation
           |                     |
-     SENSOR SAMPLING            |
+    SENSOR SAMPLING             |
           |                     |
-     DATA TRANSMISSION          |
+   DATA TRANSMISSION            |
           |                     |
           +----------+----------+
                      |
                  CENTRAL HUB
                      |
           UPDATE NODE AND ENERGY
-                HISTORY
+                  HISTORY
                      |
            BAYESIAN INFORMATION
-              EVALUATION
+                 EVALUATION
                      |
            SELECT NEXT NODE(S)
                      |
-             REQUEST FURTHER
+              REQUEST FURTHER
                MEASUREMENTS
                      |
-              DATA LOGGING
-              AND ANALYSIS
+               DATA LOGGING
+               AND ANALYSIS
 
 
