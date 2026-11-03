@@ -2,19 +2,15 @@
 
 ## Introduction
 
-Swansea is building a Net Zero future, targeting clean air, energy-efficient buildings, and sustainable infrastructure. Achieving these goals requires **dense, real-time environmental data**, without the cost and maintenance burden of conventional sensor networks.  
+Swansea is building a Net Zero future, targeting clean air, energy-efficient buildings and sustainable infrastructure. Achieving these ambitions requires dense, real-time environmental intelligence without the energy consumption, installation costs and maintenance burden of conventional sensor networks.
 
-This project demonstrates a battery-free IoT system in which energy harvested from the environment, **including the physical consequences of human activity**, not only powers the nodes but also acts as an implicit source of sensing information.
-Nodes remain in **ultra-low-power sleep**, optionally sampling locally, and **transmit data only when explicitly woken by the hub** via the Radio Controlii 868 MHz wake-up module.  
+Wake-on-Energy introduces a battery-free IoT architecture in which harvested energy serves two purposes: powering distributed sensor nodes and providing an implicit source of information about their surrounding environment. Crucially, this includes energy arising as a physical consequence of human activity. Waste heat from televisions, computers and household appliances, energy from lighting, and mechanical energy from movement can all provide opportunities for local energy harvesting. The availability and accumulation of this energy can therefore reveal patterns of environmental activity before conventional sensor measurements are requested.
 
-**What makes this approach unique:**  
-- **Energy-as-a-sensor:** A node’s ability to respond (or fail to respond) provides environmental insight even before any sensor data is transmitted.  
-- **Hub-controlled, on-demand wake-up:** Only the most informative nodes are woken, avoiding collisions, congestion, and wasted energy.  
-- **Intelligent selection via ML/DL + Bayesian optimisation:** The hub maximises information gain while keeping the network silent and efficient.  
-- **Battery-free, high-resolution sensing:** BME680 or optional sensors deliver rich environmental data only when needed.  
-- **Deadness as signal:** Non-responsive nodes still convey meaningful environmental information — a subtle, powerful feature not exploited in conventional IoT networks.  
+The network exploits this relationship through energy-informed, Bayesian-controlled sensing. Nodes operate in ultra-low-power states and communicate only when explicitly interrogated by a central hub via the Radio Controlii 868 MHz wake-up module, subject to their available energy and operating state. Rather than polling every node, the hub uses Bayesian inference and information-gain optimisation to prioritise those expected to provide the most useful additional information. Node availability and non-response are also treated as observations, interpreted in the context of energy history and network uncertainty.
 
-Imagine a city where buildings, streets, and public spaces report their own energy use, heat efficiency, and air quality, **without wires, batteries, or constant maintenance**, and with an intelligent system that **decides when and which nodes should speak**. This approach is **scalable, sustainable, and novel**, unlocking hyperlocal insights for **data-driven Net Zero decisions** in Swansea.  
+The central contribution is the integration of energy harvesting as both a power source and an implicit information channel with intelligent, selective sensing. Rather than simply collecting environmental data, Wake-on-Energy uses the energy consequences of activity to inform what the network should measure next, potentially reducing unnecessary sensing, communication and maintenance while enabling more efficient environmental monitoring and building-energy management.
+
+The longer-term ambition is to support distributed, self-sustaining environmental intelligence for Swansea's Net Zero infrastructure, including air-quality monitoring, building utilisation and adaptive heating.
 
 ---
 
