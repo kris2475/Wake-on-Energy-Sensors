@@ -12,7 +12,7 @@ Instead of pinging all 100 solar-powered nodes, the controller uses an **RBF Ker
 
 ---
 
-## 🚁 Research Significance: UAV "Surgical Extraction"
+## Research Significance: UAV "Surgical Extraction"
 As part of research into autonomous aerial data-harvesting, this framework addresses two mission-critical challenges:
 
 1.  **Endurance & Efficiency:** By eliminating the "loiter time" usually wasted waiting for timeouts from energy-starved sensors, the UAV can navigate a "surgical" path exclusively to active nodes.
@@ -20,7 +20,7 @@ As part of research into autonomous aerial data-harvesting, this framework addre
 
 ---
 
-## 🛠️ Technical Architecture
+## Technical Architecture
 
 ### 1. Environment Model (Multi-Cloud Suppression)
 The simulation generates a 10x10 grid with uniform ambient illumination, interrupted by randomised **shading events** (clouds or physical obstacles).
@@ -46,14 +46,14 @@ The system uses a **Gaussian Process Regressor** with specific "Surgical" tuning
 
 ---
 
-## 📊 Performance Metrics
+## Performance Metrics
 * **Communication Overhead:** ~9% (9 pings vs 100).
 * **Energy Savings:** Projected >90% reduction in radio uptime for the UAV Master node.
 * **Spatial Awareness:** Achieving territorial certainty across a 100-node grid in 9 iterations.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 ```bash
@@ -61,7 +61,7 @@ pip install numpy matplotlib scikit-learn
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 ```bash
