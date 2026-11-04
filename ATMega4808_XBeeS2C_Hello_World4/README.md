@@ -47,7 +47,7 @@ This repository contains the Arduino code and hardware configuration details for
 | **RO** Packetization Timeout | `3` | Standard character timeout window before flushing RF buffer to PC |
 | **AP** API Enable | `API disabled [0]` | Transparent Pass-Through Mode |
 
-## Arduino Firmware (`ATmega4808_XBee32C_hello_world.ino`)
+## Arduino Firmware (`ATmega4808_XBeeS2C_Hello_World4.ino`)
 
 Ensure you have MegaCoreX installed in your Arduino IDE settings when building for the ATmega4808 target.
 
