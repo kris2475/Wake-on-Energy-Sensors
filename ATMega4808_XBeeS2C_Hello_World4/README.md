@@ -1,20 +1,17 @@
 # Wireless Counter: ATmega4808 & XBee S2C (Transparent Mode)
 
-This repository contains the Arduino code and hardware configuration details for establishing a transparent point-to-multipoint wireless link between a custom ATmega4808 PCB and an XBee S2C Coordinator connected to a PC (XCTU / Serial Monitor).
+This repository contains the Arduino code and hardware configuration details for establishing a transparent point-to-multipoint/broadcast wireless link between a custom ATmega4808 PCB and an XBee S2C Coordinator connected to a PC (XCTU / Serial Monitor).
 
 ## System Architecture
 
-```text
-+----------------------+       +-------------------------+
-| ATmega4808 Custom PCB|       | PC / Host System        |
-|                      |       |                         |
-|  Serial0 ---> USB    |------>| Tera Term (Local Debug) |
-|  Serial2 ---> Pins   |       +-------------------------+
-|               PF0/PF1|                  ^              |
-+----------------------+                  | (RF 802.15.4)|
-           |                              v              |
-           +-------------------> XBee End Device         |---> XBee Coordinator ---> XCTU Serial Monitor
-                                                         +----------------------------------------------+
+
+| Component / Interface | Destination | Physical Connection / Protocol | Role |
+| :--- | :--- | :--- | :--- |
+| **ATmega4808 (`Serial0`)** | PC / Host System | USB Bridge | Local serial output for debugging (Tera Term) |
+| **ATmega4808 (`Serial2`)** | XBee End Device | PCB Traces (`PF0` / `PF1`) | Hardware serial interface to local radio |
+| **XBee End Device** | XBee Coordinator | Wireless (802.15.4 RF) | Transmits serial packets over RF link |
+| **XBee Coordinator** | PC / Host System | USB Adapter | Receives RF stream and forwards data to XCTU Serial Monitor |
+
 
 
 * **Local Debugging:** `Serial` outputs telemetry directly to Tera Term over USB.
